@@ -169,7 +169,14 @@ main {
     z-index: 1;
 
 } */
-
+.search-text{
+ font-size: 12px;
+ color: white;
+ cursor: pointer;
+}
+.search-text i{
+    font-size: 18px;
+}
 /* ============================================================video */
 .modal-dialog {
     max-width: 700px;
