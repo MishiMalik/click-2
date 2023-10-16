@@ -48,9 +48,11 @@ header {
     border-radius: 0px !important;
 
 }
-.gtco-testimonials .active{
+
+.gtco-testimonials .active {
     opacity: 1 !important;
 }
+
 .active-menu {
     border-bottom: 2px solid white;
 }
@@ -155,6 +157,7 @@ main {
     background-color: rgb(4, 85, 134);
     position: relative;
 }
+
 /* .nav-menu::after{
     content: " ";
     position: absolute;
@@ -168,9 +171,10 @@ main {
 } */
 
 /* ============================================================video */
-.modal-dialog{
+.modal-dialog {
     max-width: 700px;
 }
+
 .video-details {
     padding: 50px 0px;
 
@@ -199,6 +203,7 @@ main {
     height: 40px;
     z-index: 1;
 }
+
 .video-content3 {
     position: absolute;
     background: linear-gradient(180deg, rgba(4, 85, 134, 0), rgba(4, 85, 134, .13), rgba(4, 85, 134, .26), rgba(4, 85, 134, .58), #045586);
@@ -928,6 +933,7 @@ main {
     font-weight: 600;
     text-decoration: none;
 }
-.navbar-dark .navbar-nav .nav-link{
+
+.navbar-dark .navbar-nav .nav-link {
     color: white !important;
 }
