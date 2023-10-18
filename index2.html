@@ -16,7 +16,7 @@
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
-  
+
     <link rel="stylesheet" href="assets/css/style-custom.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
@@ -636,224 +636,117 @@
                     </div>
                 </div>
 
+                <div id="app">
+                    <div class="home">
+                        <div class="wrapper" ref="wrapper" v-bind:class="{'is-locked': isLocked}">
+                            <div class="wrapper" ref="wrapper" v-bind:class="{'is-locked': isLocked}">
 
-                <div
-                    class="keyfacts keyfacts--home Light padding-md padding-xl-tablet padding-xxl-desktop padding-xxxl-wide is-initied">
-                    <div class="keyfacts__container container ok">
-                        <div class="keyfacts__content">
-                            <div class="keyfacts__facts">
-                                <div class="keyfacts__border"></div>
-                                <div class="keyfacts__fact">
-                                    <div class="keyfacts__text">
-                                        <div class="text-split--line is-rendered"
-                                            style="clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);"><span
-                                                class="text-split--word">Top</span> <span
-                                                class="text-split--word">30</span> <span
-                                                class="text-split--word">in</span> <span
-                                                class="text-split--word">the</span> </div>
-                                        <div class="text-split--line is-rendered"
-                                            style="clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);"><span
-                                                class="text-split--word">Guardian</span> <span
-                                                class="text-split--word">University</span> </div>
-                                        <div class="text-split--line is-rendered"
-                                            style="clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);"><span
-                                                class="text-split--word">Guide</span> <span
-                                                class="text-split--word">2024</span> </div>
+                                <div is="sx-keyfacts"
+                                    class="keyfacts keyfacts--home Light padding-md padding-xl-tablet padding-xxl-desktop padding-xxxl-wide"
+                                    inline-template>
+                                    <div
+                                        v-bind:class="{'is-changing': isChanging, 'is-paused': isPaused, 'is-initied': isInitied}">
+                                        <div class="keyfacts__container container ok">
+                                            <div class="keyfacts__content" ref="touchArea">
+                                                <!-- <h2 class="keyfacts__header section-header">Why <br/> Study here?</h2> -->
+                                                <div class="keyfacts__facts">
+                                                    <div class="keyfacts__border"></div>
+                                                    <div class="keyfacts__fact js-slide single">
+                                                        <div class="keyfacts__text js-text">Top 30 in the Guardian
+                                                            University Guide
+                                                            2024
+                                                        </div>
+                                                    </div>
+                                                    <div class="keyfacts__fact js-slide single">
+                                                        <div class="keyfacts__text js-text">Five subjects in UK top 10
+                                                            for research
+                                                            power (Times Higher Education 2022)</div>
+                                                    </div>
+                                                    <div class="keyfacts__fact js-slide single">
+                                                        <div class="keyfacts__text js-text">We are 15th for
+                                                            international outlook
+                                                            (Times
+                                                            Higher Education, World University Rankings 2024)</div>
+                                                    </div>
+                                                    <div class="keyfacts__fact js-slide single">
+                                                        <div class="keyfacts__text js-text">89% of our graduates are in
+                                                            employment
+                                                            or
+                                                            further study (Graduate Outcomes 2023)</div>
+                                                    </div>
+                                                    <div class="keyfacts__fact" v-bind:class="getSlideState(index)"
+                                                        v-for="(slide, index) in slides" ref="slide"></div>
+                                                    <div class="keyfacts__bullets">
+                                                        <button type="button" class="keyfacts__bullet"
+                                                            v-bind:class="getSlideState(index)"
+                                                            v-for="(slide, index) in slides" ref="bullet"
+                                                            v-on:click="setSlide(index)"
+                                                            v-html="index+1 + '.'"></button>
+                                                    </div>
+                                                </div>
+                                                <div class="keyfacts__arrows">
+                                                    <button type="button" class="keyfacts__prev button"
+                                                        aria-label="Previous key fact" v-on:click="prev">
+                                                        <svg class="keyfacts__icon">
+                                                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                xlink:href="#icon-prev">
+                                                            </use>
+                                                        </svg>
+                                                    </button>
+                                                    <button class="keyfacts__play-pause button"
+                                                        v-bind:aria-label="[isPaused ? 'Play the key facts rotation' : 'Pause the key facts rotation']"
+                                                        v-on:click="handlePlayPause">
+                                                        <svg width="18" height="18" class="keyfacts__icon">
+                                                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                v-bind:xlink:href="[isPaused ? '#icon-play-btn-square' : '#icon-pause-btn-square']">
+                                                            </use>
+                                                        </svg>
+                                                    </button>
+                                                    <button type="button" class="keyfacts__next button"
+                                                        aria-label="Next key fact" v-on:click="next">
+                                                        <svg class="keyfacts__icon">
+                                                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                xlink:href="#icon-next">
+                                                            </use>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="keyfacts__images">
+                                                <div class="keyfacts__images-group js-images">
+                                                    <img src='https://www.essex.ac.uk/-/media/images/study/campus-tour-southend-students-piggyback-beach-1500x825.jpg?h=500&w=500&crop=1&hash=ABA1884F65843D37D0603021F88582AE'
+                                                        class='keyfacts__image1' alt='Students laughing and chatting' />
+                                                    <div class="keyfacts__image1-overlay"></div>
+                                                </div>
+                                                <div class="keyfacts__images-group js-images">
+                                                    <img src='https://www.essex.ac.uk/-/media/2017/12/ref-homepage.jpg?h=500&w=500&crop=1&hash=49804090CED8970022DA9501CD720ECB'
+                                                        class='keyfacts__image1'
+                                                        alt='Research academics reviewing documents' />
+                                                    <div class="keyfacts__image1-overlay"></div>
+                                                </div>
+                                                <div class="keyfacts__images-group js-images">
+                                                    <img src='https://www.essex.ac.uk/-/media/header-images/events/international-event-for-web.jpg?h=500&w=500&crop=1&hash=F516B6881199CA90D391493ADF50C76F'
+                                                        class='keyfacts__image1'
+                                                        alt='International students with their countries flags' />
+                                                    <div class="keyfacts__image1-overlay"></div>
+                                                </div>
+                                                <div class="keyfacts__images-group js-images">
+                                                    <img src='https://www.essex.ac.uk/-/media/images/study/campus-tour-southend-students-piggyback-beach-1500x825.jpg?h=500&w=500&crop=1&hash=ABA1884F65843D37D0603021F88582AE'
+                                                        class='keyfacts__image1'
+                                                        alt='With 7 miles of award-winning coastline on your doorstep and London just a stone&#39;s throw away, our Southend students have the best of both worlds ' />
+                                                    <div class="keyfacts__image1-overlay"></div>
+                                                </div>
+                                                <div class="keyfacts__images-group"
+                                                    v-bind:class="[slide.single, getSlideState(index)]"
+                                                    v-for="(slide, index) in slides" ref="image"></div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="keyfacts__fact is-active">
-                                    <div class="keyfacts__text">
-                                        <div class="text-split--line is-rendered" style=""><span
-                                                class="text-split--word">Five</span> <span
-                                                class="text-split--word">subjects</span> <span
-                                                class="text-split--word">in</span> <span
-                                                class="text-split--word">UK</span> </div>
-                                        <div class="text-split--line is-rendered" style=""><span
-                                                class="text-split--word">top</span> <span
-                                                class="text-split--word">10</span> <span
-                                                class="text-split--word">for</span> <span
-                                                class="text-split--word">research</span> </div>
-                                        <div class="text-split--line is-rendered" style=""><span
-                                                class="text-split--word">power</span> <span
-                                                class="text-split--word">(Times</span> <span
-                                                class="text-split--word">Higher</span> </div>
-                                        <div class="text-split--line is-rendered" style=""><span
-                                                class="text-split--word">Education</span> <span
-                                                class="text-split--word">2022)</span> </div>
-                                    </div>
-                                </div>
-                                <div class="keyfacts__fact">
-                                    <div class="keyfacts__text">
-                                        <div class="text-split--line is-rendered"
-                                            style="clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);"><span
-                                                class="text-split--word">We</span> <span
-                                                class="text-split--word">are</span> <span
-                                                class="text-split--word">15th</span> <span
-                                                class="text-split--word">for</span> </div>
-                                        <div class="text-split--line is-rendered"
-                                            style="clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);"><span
-                                                class="text-split--word">international</span> <span
-                                                class="text-split--word">outlook</span> </div>
-                                        <div class="text-split--line is-rendered"
-                                            style="clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);"><span
-                                                class="text-split--word">(Times</span> <span
-                                                class="text-split--word">Higher</span> </div>
-                                        <div class="text-split--line is-rendered"
-                                            style="clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);"><span
-                                                class="text-split--word">Education,</span> <span
-                                                class="text-split--word">World</span> </div>
-                                        <div class="text-split--line is-rendered"
-                                            style="clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);"><span
-                                                class="text-split--word">University</span> <span
-                                                class="text-split--word">Rankings</span> </div>
-                                        <div class="text-split--line is-rendered"
-                                            style="clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);"><span
-                                                class="text-split--word">2024)</span> </div>
-                                    </div>
-                                </div>
-                                <div class="keyfacts__fact">
-                                    <div class="keyfacts__text">
-                                        <div class="text-split--line is-rendered"
-                                            style="clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);"><span
-                                                class="text-split--word">89%</span> <span
-                                                class="text-split--word">of</span> <span
-                                                class="text-split--word">our</span> <span
-                                                class="text-split--word">graduates</span> </div>
-                                        <div class="text-split--line is-rendered"
-                                            style="clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);"><span
-                                                class="text-split--word">are</span> <span
-                                                class="text-split--word">in</span> <span
-                                                class="text-split--word">employment</span> <span
-                                                class="text-split--word">or</span> </div>
-                                        <div class="text-split--line is-rendered"
-                                            style="clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);"><span
-                                                class="text-split--word">further</span> <span
-                                                class="text-split--word">study</span> </div>
-                                        <div class="text-split--line is-rendered"
-                                            style="clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);"><span
-                                                class="text-split--word">(Graduate</span> <span
-                                                class="text-split--word">Outcomes</span> <span
-                                                class="text-split--word"></span> </div>
-                                        <div class="text-split--line is-rendered"
-                                            style="clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);"><span
-                                                class="text-split--word">2023)</span> </div>
-                                    </div>
-                                </div>
-                                <div class="keyfacts__bullets"><button type="button"
-                                        class="keyfacts__bullet">1.</button><button type="button"
-                                        class="keyfacts__bullet is-active">2.</button><button type="button"
-                                        class="keyfacts__bullet">3.</button><button type="button"
-                                        class="keyfacts__bullet">4.</button></div>
-                            </div>
-                            <div class="keyfacts__arrows"><button type="button" aria-label="Previous key fact"
-                                    class="keyfacts__prev button"><svg class="keyfacts__icon">
-                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-prev"></use>
-                                    </svg></button> <button aria-label="Pause the key facts rotation"
-                                    class="keyfacts__play-pause button"><svg width="18" height="18"
-                                        class="keyfacts__icon">
-                                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                                            xlink:href="#icon-pause-btn-square"></use>
-                                    </svg></button> <button type="button" aria-label="Next key fact"
-                                    class="keyfacts__next button"><svg class="keyfacts__icon">
-                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-next"></use>
-                                    </svg></button></div>
-                        </div>
-                        <div class="keyfacts__images">
-                            <div class="keyfacts__images-group single"><img
-                                    src="https://www.essex.ac.uk/-/media/2017/12/nss-homepage.jpg?h=500&w=500&crop=1&hash=F821D380043E45BC890201DD73656FA9"
-                                    alt="Students laughing and chatting" class="keyfacts__image1">
-                                <div class="keyfacts__image1-overlay"></div>
-                            </div>
-                            <div class="keyfacts__images-group single is-active"><img
-                                    src="https://www.essex.ac.uk/-/media/2017/12/ref-homepage.jpg?h=500&w=500&crop=1&hash=49804090CED8970022DA9501CD720ECB"
-                                    alt="Research academics reviewing documents" class="keyfacts__image1">
-                                <div class="keyfacts__image1-overlay"></div>
-                            </div>
-                            <div class="keyfacts__images-group single"><img
-                                    src="https://www.essex.ac.uk/-/media/header-images/events/international-event-for-web.jpg?h=500&w=500&crop=1&hash=F516B6881199CA90D391493ADF50C76F"
-                                    alt="International students with their countries flags" class="keyfacts__image1">
-                                <div class="keyfacts__image1-overlay"></div>
-                            </div>
-                            <div class="keyfacts__images-group single"><img
-                                    src="https://www.essex.ac.uk/-/media/images/study/campus-tour-southend-students-piggyback-beach-1500x825.jpg?h=500&w=500&crop=1&hash=ABA1884F65843D37D0603021F88582AE"
-                                    alt="With 7 miles of award-winning coastline on your doorstep and London just a stone's throw away, our Southend students have the best of both worlds "
-                                    class="keyfacts__image1">
-                                <div class="keyfacts__image1-overlay"></div>
+
                             </div>
                         </div>
-
-
-
                     </div>
-                    <div class="cross-links"><a href="/life/colchester-campus"
-                            class="cross-links__wrapper content-padding">
-                            <div class="cross-links__img-wrapper"><img
-                                    data-src="/-/media/images/study/study-campus-1000x1000.jpg?mh=800&amp;mw=800&amp;hash=8035CF1654179049BDD73D07B73D672D"
-                                    alt="" class="cross-links__img js-object-fit-image lazyloaded"
-                                    src="https://www.essex.ac.uk/-/media/images/study/study-campus-1000x1000.jpg?mh=800&mw=800&hash=8035CF1654179049BDD73D07B73D672D">
-                            </div>
-                            <div class="cross-links__overlay"></div>
-                            <div class="cross-links__text-wrapper"><span class="cross-links__title">Colchester
-                                    campus</span>
-                                <div class="cross-links__subtitle">
-                                    Study here
-                                    <svg width="20" height="20" class="icon cross-links__arrow">
-                                        <use xlink:href="#icon-arrow-right"></use>
-                                    </svg>
-                                </div>
-                            </div>
-                        </a> <a href="/life/southend-campus" class="cross-links__wrapper content-padding">
-                            <div class="cross-links__img-wrapper"><img
-                                    data-src="/-/media/images/study/campus-tour-southend-forum-night-1500x825.jpg?mh=800&amp;mw=800&amp;hash=CE82C3446BD71A94204D7E748741A365"
-                                    alt="" class="cross-links__img js-object-fit-image lazyloaded"
-                                    src="https://www.essex.ac.uk/-/media/images/study/campus-tour-southend-forum-night-1500x825.jpg?mh=800&mw=800&hash=CE82C3446BD71A94204D7E748741A365">
-                            </div>
-                            <div class="cross-links__overlay"></div>
-                            <div class="cross-links__text-wrapper"><span class="cross-links__title">Southend
-                                    campus</span>
-                                <div class="cross-links__subtitle">
-                                    Study here
-                                    <svg width="20" height="20" class="icon cross-links__arrow">
-                                        <use xlink:href="#icon-arrow-right"></use>
-                                    </svg>
-                                </div>
-                            </div>
-                        </a></div>
-
-                    <div class="cross-links"><a href="/life/loughton-campus"
-                            class="cross-links__wrapper content-padding">
-                            <div class="cross-links__img-wrapper"><img
-                                    data-src="/-/media/images/departments/east15/images/loughton/loughton-campus-980x600.jpg?mh=800&amp;mw=800&amp;hash=9081611970D75272721E6A48BD19C5A4"
-                                    alt="" class="cross-links__img js-object-fit-image lazyloaded"
-                                    src="https://www.essex.ac.uk/-/media/images/departments/east15/images/loughton/loughton-campus-980x600.jpg?mh=800&mw=800&hash=9081611970D75272721E6A48BD19C5A4">
-                            </div>
-                            <div class="cross-links__overlay"></div>
-                            <div class="cross-links__text-wrapper"><span class="cross-links__title">Loughton
-                                    campus</span>
-                                <div class="cross-links__subtitle">
-                                    Study here
-                                    <svg width="20" height="20" class="icon cross-links__arrow">
-                                        <use xlink:href="#icon-arrow-right"></use>
-                                    </svg>
-                                </div>
-                            </div>
-                        </a> <a href="/study-online" class="cross-links__wrapper content-padding">
-                            <div class="cross-links__img-wrapper"><img
-                                    data-src="/-/media/images/centres-and-institutes/centre-for-research-in-entrepreneurship-innovation-management-(reimi)/woman-writing-typing-computer-work.jpg?mh=800&amp;mw=800&amp;hash=998D11463B702469B4B0D2A45E8B036B"
-                                    alt="" class="cross-links__img js-object-fit-image lazyloaded"
-                                    src="https://www.essex.ac.uk/-/media/images/centres-and-institutes/centre-for-research-in-entrepreneurship-innovation-management-(reimi)/woman-writing-typing-computer-work.jpg?mh=800&mw=800&hash=998D11463B702469B4B0D2A45E8B036B">
-                            </div>
-                            <div class="cross-links__overlay"></div>
-                            <div class="cross-links__text-wrapper"><span class="cross-links__title">University of Essex
-                                    Online</span>
-                                <div class="cross-links__subtitle">
-                                    Find out more about online study
-                                    <svg width="20" height="20" class="icon cross-links__arrow">
-                                        <use xlink:href="#icon-arrow-right"></use>
-                                    </svg>
-                                </div>
-                            </div>
-                        </a></div>
                 </div>
             </div>
         </div>
@@ -1069,8 +962,9 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="/assets/dist/vendor.js" defer></script>
     <script src="/assets/js/app.js" defer></script>
+    <script src="/assets/dist/vendor.js" defer></script>
     <script src="/assets/dist/app.js" defer></script>
-    <script src="//platform.twitter.com/widgets.js" defer></script>
+    <script src="https://platform.twitter.com/widgets.js" defer></script>
     <script src="https://www.google.com/recaptcha/api.js?onload=recaptchaInit&render=explicit" defer></script>
 </body>
 

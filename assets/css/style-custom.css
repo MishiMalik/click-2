@@ -20743,7 +20743,9 @@ a.staff-card__item:hover {
 }
 
 .keyfacts__content {
-    position: relative
+    position: relative;
+    /* padding:30px; */
+    /* min-height: 400px; */
 }
 
 @media (min-width:48em) {
@@ -20982,10 +20984,11 @@ h2+.keyfacts__facts {
     font-weight: 700;
     font-size: 24px;
     line-height: .875em;
-    letter-spacing: 0
+    letter-spacing: 0;
+    text-align: left !important;
 }
 
-@media (min-width:48em) {
+/* @media (min-width:48em) {
     .keyfacts__text {
         font-size: 36px
     }
@@ -21001,7 +21004,7 @@ h2+.keyfacts__facts {
     .keyfacts__text {
         font-size: 60px
     }
-}
+} */
 
 .keyfacts__bullets {
     display: block;
