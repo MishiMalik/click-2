@@ -1,9 +1,9 @@
-
-:root{
-    --dark-red:#721822;
-    --blue:#045487;
-    --dark-blue:#02324F;
+:root {
+    --dark-red: #721822;
+    --blue: #045487;
+    --dark-blue: #02324F;
 }
+
 @media (min-width:48em) {
     .is-hidden-tablet {
         display: none
@@ -681,6 +681,7 @@ p {
         font-size: 3rem
     }
 }
+
 /* 
 .nav-item {
     font-family: akzidenz-grotesk, sans-serif;
@@ -15887,7 +15888,7 @@ a.staff-card__item:hover {
 
 @media (min-width:48em) {
     .content-filter-container--research {
-    zoom: 1
+        zoom: 1
     }
 
     .content-filter-container--research:after,
@@ -17121,7 +17122,7 @@ a.staff-card__item:hover {
     align-self: flex-start;
     width: 32px;
     height: 32px;
-    background:var(--blue);
+    background: var(--blue);
 }
 
 .social-buttons__icon-wrapper:not(:last-child) {
@@ -19274,7 +19275,8 @@ a.staff-card__item:hover {
 }
 
 .footer__header {
-    background:linear-gradient(to right, #0000007c, #0000007c), url(../images/1653304289.jpg);;
+    background: linear-gradient(to right, #0000007c, #0000007c), url(../images/1653304289.jpg);
+    ;
     background-size: cover;
     padding: 40px 0
 }
@@ -27663,7 +27665,7 @@ h2+.keyfacts__facts {
     position: relative;
     width: 90%;
     margin-top: -75px;
-    background-color:var(--dark-red);
+    background-color: var(--dark-red);
     padding: 30px;
     color: #fff;
     transition: background-color .3s linear
