@@ -1,3 +1,9 @@
+
+:root{
+    --dark-red:#721822;
+    --blue:#045487;
+    --dark-blue:#02324F;
+}
 @media (min-width:48em) {
     .is-hidden-tablet {
         display: none
@@ -17115,7 +17121,7 @@ a.staff-card__item:hover {
     align-self: flex-start;
     width: 32px;
     height: 32px;
-    background: #252525
+    background:var(--blue);
 }
 
 .social-buttons__icon-wrapper:not(:last-child) {
@@ -19268,7 +19274,7 @@ a.staff-card__item:hover {
 }
 
 .footer__header {
-    background: url(/assets/dist/app/components/footer/img/bg.jpg) no-repeat 50% 50%;
+    background:linear-gradient(to right, #0000007c, #0000007c), url(../images/1653304289.jpg);;
     background-size: cover;
     padding: 40px 0
 }
@@ -19380,7 +19386,7 @@ a.staff-card__item:hover {
 }
 
 .footer__menu-section {
-    background: #000;
+    background: var(--dark-red);
     color: #fff;
     padding: 2rem 1rem;
     -ms-flex-flow: row wrap;
@@ -19392,7 +19398,7 @@ a.staff-card__item:hover {
 
 @media (min-width:48em) {
     .footer__menu-section {
-        background: #181818
+        background: var(--dark-red);
     }
 }
 
@@ -19485,15 +19491,15 @@ a.staff-card__item:hover {
     }
 }
 
-.footer__contact-section {
+/* .footer__contact-section {
     background: #181818
-}
+} */
 
-@media (min-width:48em) {
+/* @media (min-width:48em) {
     .footer__contact-section {
         background: #000
     }
-}
+} */
 
 .footer__contact-section .container {
     display: -ms-flexbox;
@@ -19605,7 +19611,7 @@ a.staff-card__item:hover {
 }
 
 .footer__copy {
-    background: #000
+    background: var(--blue)
 }
 
 .footer__copy .container {
@@ -27657,7 +27663,7 @@ h2+.keyfacts__facts {
     position: relative;
     width: 90%;
     margin-top: -75px;
-    background-color: #252525;
+    background-color:var(--dark-red);
     padding: 30px;
     color: #fff;
     transition: background-color .3s linear
